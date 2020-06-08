@@ -29,28 +29,6 @@ router.get("/:userId", async (req, res, next) => {
 
 // POST
 router.post("/", async (req, res, next) => {
-  //   const user = new User({
-  //     _id: new mongoose.Types.ObjectId(),
-  //     nome: req.body.nome,
-  //     sobrenome: req.body.sobrenome,
-  //     endereco: req.body.endereco,
-  //     cpf: req.body.cpf,
-  //     telefone: req.body.telefone,
-  //   });
-
-  //   user
-  //     .save()
-  //     .then((result) => {
-  //       res.status(201).json({
-  //         user,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).json({
-  //         error: err,
-  //       });
-  //     });
-
   try {
     const user = new User({
       _id: new mongoose.Types.ObjectId(),
@@ -70,14 +48,6 @@ router.post("/", async (req, res, next) => {
 
 // PUT
 router.put("/:userId", cors(), async (req, res, next) => {
-   //  const id = req.params.userId;
-   //  User.findByIdAndUpdate(id, req.body, { new: true }) // Esse aqui e pra atualizar
-   //    .exec()
-   //    .then((doc) =>
-   //      res.status(200).json({ message: "User atualizado", usuario: id })
-   //    )
-   //    .catch((err) => res.status(500).json({ error: err }));
-
   try {
     const user = req.params.userId;
     await User.findByIdAndUpdate(user, req.body, { new: true }) ;
@@ -90,11 +60,6 @@ router.put("/:userId", cors(), async (req, res, next) => {
 
 // DELETE
 router.delete("/:userId", cors(), async (req, res, next) => {
-  //   const id = req.params.userId;
-  //   User.findByIdAndDelete(id) // esse e pra deletar
-  //     .exec()
-  //     .then((doc) => res.status(200).json({ message: "User Deletado", user: id }))
-  //     .catch((err) => res.status(500).json({ error: err }));
   try {
     const user = await User.findByIdAndRemove(req.params.userId);
 
