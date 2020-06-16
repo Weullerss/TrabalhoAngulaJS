@@ -4,8 +4,8 @@ const userSchema = mongoose.Schema({
   nome: String,
   sobrenome: String,
   endereco: String,
-  cpf: Number,
-  telefone: Number,
+  cpf: String,
+  telefone: String,
 });
 
 module.exports = mongoose.model("User", userSchema);
