@@ -50,12 +50,14 @@ router.post("/", async (req, res, next) => {
 router.put("/:userId", cors(), async (req, res, next) => {
   try {
     const user = req.params.userId;
-    await User.findByIdAndUpdate(user, req.body, { new: true }) ;
-	 
-    return res.status(200).send({ message: "Usuario atualizado", usuario: user });
-	} catch (err) {
-		return res.status(400).send({ error: "Erro ao atualizar o Usuario" });
-	}
+    await User.findByIdAndUpdate(user, req.body, { new: true });
+
+    return res
+      .status(200)
+      .send({ message: "Usuario atualizado", usuario: user });
+  } catch (err) {
+    return res.status(400).send({ error: "Erro ao atualizar o Usuario" });
+  }
 });
 
 // DELETE
@@ -68,4 +70,5 @@ router.delete("/:userId", cors(), async (req, res, next) => {
     return res.status(400).send({ error: "Erro ao deletar o Usuario" });
   }
 });
+
 module.exports = router;
